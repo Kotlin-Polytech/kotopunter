@@ -1,0 +1,30 @@
+<header>
+<div id="nav_container">
+<nav>
+{% unless page.layout == 'front' %}
+  <ul>
+    <h1><a href="{{ site.url }}">{{ site.title }}</a></h1>
+    {% for link in site.navigation %}
+      {% assign current = nil %}
+      {% if page.url == link.url or page.layout == link.layout %}
+        {% assign current = 'current' %}
+      {% endif %}
+
+      <li class="{{ current }}">
+        {% if link.text == "Code of Conduct" %}
+        <a class="{{ current }}" href="{{ link.url }}">{{ link.text }}</a>
+        {% else %}
+        <a class="{{ current }}" href="{{ site.url }}{{ link.url }}">{{ link.text }}</a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+  <ul style="display: flex; justify-content: center;">
+    <li><a href="https://twitter.com/ICFPContest2017">Twitter</a></li>
+    <li><a href="http://lists.inf.ed.ac.uk/mailman/listinfo/Icfp-contest2017">Mailing list</a></li>
+    <li><a href="irc://irc.freenode.net/icfp-contest">IRC: #icfp-contest on irc.freenode.net</a></li>
+  </ul>
+{% endunless %}
+</nav>
+</div>
+</header>

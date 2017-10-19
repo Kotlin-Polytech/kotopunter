@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>PuntTV - The #1 channel for Lambda Punter action!</title>
+    <link rel="stylesheet" href="../js-core/bootstrap.min.css">
+    <script src="../js-core/jquery.min.js"></script>
+    <script src="../js-core/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/style-selector.css">
+    <script src="./js/punttv-selector.js"></script>
+  </head>
+  <body onload="main()">
+    <header>
+      <h1>PuntTV</h1>
+    </header>
+    <div class="content-wrapper">
+
+      <input type="text" id="phrase" onkeyup="filteredSearch()" placeholder="Search for team names...">
+
+      <ul id="nav-ul" class="nav nav-tabs">
+        <!-- Tab names go here -->
+        <!--
+      <table id="playerTable">
+        <thead>
+          <tr class="header">
+            <th>Team</th>
+          </tr>
+        </thead>
+      </table>
+        -->
+      </ul>
+
+      <div id="tab-content-container" class="tab-content">
+        <!-- tab contents go here -->
+      </div>
+    </div>
+  </body>
+</html>
