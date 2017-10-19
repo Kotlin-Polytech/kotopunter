@@ -1,0 +1,9 @@
+syntax: glob
+
+.idea
+.vertx
+*.iml
+node_modules
+target
+punttv/games
+webroot/orgs/static

@@ -1,0 +1,24 @@
+include elements/title
+
+doctype html
+
+- var url = context.helpers.get("url")
+- var static = context.helpers.get("static")
+
+html
+    head
+        block title
+        if context.vendorCss
+            link(rel="stylesheet", href=context.vendorCss)
+        if context.css
+            link(rel="stylesheet", href=context.css)
+
+    body
+        div(class="container")
+            block content
+        include ./snafu
+
+        if context.vendorJs
+            script(type="text/javascript", src=context.vendorJs)
+        if context.js
+            script(type="text/javascript", src=context.js)
