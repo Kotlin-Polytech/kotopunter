@@ -7,12 +7,14 @@ object Address {
 
     object DB {
         fun create(entity: String) = "kotoed.db.$entity.create"
+        fun update(entity: String) = "kotoed.db.$entity.update"
         fun find(entity: String) = "kotoed.db.$entity.find"
-        fun batchCreate(entity: String) = "kotoed.db.$entity.create.batch"
         fun delete(entity: String) = "kotoed.db.$entity.delete"
         fun read(entity: String) = "kotoed.db.$entity.read"
-        fun query(entity: String) = "kotoed.db.$entity.query"
+
+        fun readPage(entity: String) = "kotoed.db.$entity.readPage"
         fun count(entity: String) = "kotoed.db.$entity.count"
+
     }
 
     object User {
@@ -37,6 +39,12 @@ object Address {
     object Dispatcher {
         const val Status = "kotopunter.dispatcher.status"
         const val Update = "kotopunter.dispatcher.update"
+    }
+
+
+    object History {
+        const val Page = "kotopunter.history.page"
+        const val Count = "kotopunter.history.count"
     }
 
     const val Schedule = "kotopunter.schedule"

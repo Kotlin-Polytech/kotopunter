@@ -5,10 +5,10 @@ import io.vertx.core.json.JsonObject
 import kotlinx.coroutines.experimental.launch
 import kotlinx.coroutines.experimental.newSingleThreadContext
 import org.jetbrains.research.kotopunter.config.Config
+import org.jetbrains.research.kotopunter.database.tables.records.GameRecord
 import org.jetbrains.research.kotopunter.eventbus.Address
 import org.jetbrains.research.kotopunter.util.*
 import java.io.File
-import java.io.FilenameFilter
 import java.util.concurrent.ThreadLocalRandom
 import java.util.concurrent.TimeUnit
 
@@ -31,7 +31,7 @@ data class Update(val type: String, val payload: Jsonable) : Jsonable
 
 @AutoDeployable
 class Dispatcher : AbstractKotopunterVerticle() {
-    val ports = 9002..9012
+    val ports = Config.Dispatcher.PortRange.From..Config.Dispatcher.PortRange.To
 
     val maps by lazy {
         val dir = File(Config.Game.mapDirectory)
@@ -46,7 +46,8 @@ class Dispatcher : AbstractKotopunterVerticle() {
                 WithExceptions { log.error("", it) }
     }
 
-    fun GameState(port: Int) = GameState(port, "unknown", MutableList(2) { Player(null) }, Phase.CREATED)
+    fun GameState(port: Int) =
+            GameState(port, "unknown", MutableList(Config.Dispatcher.Players) { Player(null) }, Phase.CREATED)
 
     val statusTable = ports.mapTo(mutableListOf()) { GameState(it) }
 
@@ -104,7 +105,7 @@ class Dispatcher : AbstractKotopunterVerticle() {
                             "--port",
                             "$port",
                             "--punters",
-                            "2",
+                            "${Config.Dispatcher.Players}",
                             "--map",
                             randomMap.absolutePath
                     )
@@ -114,16 +115,26 @@ class Dispatcher : AbstractKotopunterVerticle() {
                     log.info("Game $ix: created")
 
                     val lines = process.inputStream.bufferedReader().lineSequence()
+                    val logArray = jsonArrayOf(JsonObject("start" to JsonObject()))
                     for (line in lines) {
                         parseLine(ix, line)
+                        lineToJson(line)?.let { logArray += it }
                     }
 
                     process.waitFor(5, TimeUnit.SECONDS)
                     log.info("Game $ix: finished")
 
+                    logArray += JsonObject("stop" to JsonObject())
+                    val objectLog = JsonObject("game" to logArray)
+
                     statusTable[ix] = GameState(port)
                     publishJsonable(Address.Dispatcher.Update, Update("game_finished", GameFinished(ix)))
 
+                    if(logArray.asSequence().filterIsInstance<JsonObject>().any { it.containsKey("gameplay") }) {
+                        val dbGame: GameRecord =
+                                sendJsonableAsync(Address.DB.create("game"), GameRecord().apply { log = objectLog })
+                        use(dbGame)
+                    }
                 }
             }
         }

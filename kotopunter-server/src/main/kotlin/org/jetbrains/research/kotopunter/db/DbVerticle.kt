@@ -6,6 +6,8 @@ import kotlinx.coroutines.experimental.newFixedThreadPoolContext
 import kotlinx.coroutines.experimental.runBlocking
 import org.jetbrains.research.kotopunter.config.Config
 import org.jetbrains.research.kotopunter.data.db.BatchUpdateMsg
+import org.jetbrains.research.kotopunter.data.db.CountResponse
+import org.jetbrains.research.kotopunter.data.db.ReadPageMsg
 import org.jetbrains.research.kotopunter.database.Tables
 import org.jetbrains.research.kotopunter.database.tables.records.DenizenRecord
 import org.jetbrains.research.kotopunter.database.tables.records.GameRecord
@@ -109,14 +111,12 @@ abstract class CrudDatabaseVerticle<R : TableRecord<R>>(
 ) : DatabaseVerticle<R>(table, entityName) {
 
     val createAddress = Address.DB.create(entityName)
-    val batchCreateAddress = Address.DB.batchCreate(entityName)
+    val updateAddress = Address.DB.update(entityName)
     val readAddress = Address.DB.read(entityName)
     val findAddress = Address.DB.find(entityName)
     val deleteAddress = Address.DB.delete(entityName)
-    val queryAddress = Address.DB.query(entityName)
-    val queryCountAddress = Address.DB.count(entityName)
 
-    private fun R.toWhere(): List<Condition> {
+    protected fun R.toWhere(): List<Condition> {
         val queryFields = table
                 .fields()
                 .asSequence()
@@ -194,28 +194,6 @@ abstract class CrudDatabaseVerticle<R : TableRecord<R>>(
         }
     }
 
-    @JsonableEventBusConsumerForDynamic(addressProperty = "batchUpdateAddress")
-    suspend fun handleBatchUpdateWrapper(message: JsonObject) =
-            handleBatchUpdate(
-                    BatchUpdateMsg(
-                            message.getJsonObject("criteria").toRecord(recordClass),
-                            message.getJsonObject("patch").toRecord(recordClass)
-                    )
-            )
-
-    protected open suspend fun handleBatchUpdate(message: BatchUpdateMsg<R>) { // TODO UPDATE RETURNING
-        log.trace("Batch update requested for in table ${table.name}:\n$message")
-        return db {
-            sqlStateAware {
-                update(table)
-                        .set(message.patch)
-                        .where(message.criteria.toWhere())
-                        .execute()
-            }
-        }
-    }
-
-
     @JsonableEventBusConsumerForDynamic(addressProperty = "createAddress")
     suspend fun handleCreateWrapper(message: JsonObject) =
             handleCreate(message.toRecord(recordClass)).toJson()
@@ -235,40 +213,6 @@ abstract class CrudDatabaseVerticle<R : TableRecord<R>>(
                         .fetch()
                         .into(recordClass)
                         .first()
-            }
-        }
-    }
-
-    @JsonableEventBusConsumerForDynamic(addressProperty = "batchCreateAddress")
-    suspend fun handleBatchCreateWrapper(message: JsonArray) =
-            handleBatchCreate(message.map { (it as JsonObject).toRecord(recordClass) })
-                    .map { it.toJson() }
-                    .tryToJson() as JsonArray
-
-    protected open suspend fun handleBatchCreate(message: List<R>): List<R> {
-        log.trace("Batch create requested in table ${table.name}:\n" +
-                message.joinToString(separator = "\n")
-        )
-
-        if (message.isEmpty()) return emptyList()
-
-        for (field in table.primaryKey.fieldsArray) {
-            message.map { it.reset(field) }
-        }
-
-        return db {
-            sqlStateAware {
-                withTransaction {
-                    message.drop(1)
-                            .fold(insertInto(table)
-                                    .set(message.first())) { acc, r ->
-                                acc.newRecord()
-                                        .set(r)
-                            }
-                            .returning()
-                            .fetch()
-                            .into(recordClass)
-                }
             }
         }
     }
@@ -300,12 +244,56 @@ abstract class CrudDatabaseVerticle<R : TableRecord<R>>(
         return field
     }
 
-    data class CountResponse(val count: Int) : Jsonable
-
 }
 
 @AutoDeployable
 class DenizenVerticle : CrudDatabaseVerticle<DenizenRecord>(Tables.DENIZEN)
 
 @AutoDeployable
-class GameVerticle: CrudDatabaseVerticle<GameRecord>(Tables.GAME)
+class GameVerticle: CrudDatabaseVerticle<GameRecord>(Tables.GAME) {
+    val readPageAddress = Address.DB.readPage(entityName)
+    val countAddress = Address.DB.count(entityName)
+
+    @JsonableEventBusConsumerForDynamic(addressProperty = "readPageAddress")
+    suspend fun handlePageWrapper(message: JsonObject) =
+            handlePage(message.toJsonable())
+
+    private suspend fun handlePage(message: ReadPageMsg): JsonArray {
+        val find: GameRecord = message.find.toRecord()
+
+        val query = message
+        log.trace("Page requested in table ${table.name}:\n$query")
+
+        val resp = db {
+            selectFrom(table)
+                    .where(find.toWhere())
+                    .orderBy(Tables.GAME.TIME.desc())
+                    .limit(message.pageSize)
+                    .offset(message.page * message.pageSize)
+                    .fetch()
+                    .into(JsonObject::class.java)
+                    .let{ io.vertx.core.json.JsonArray(it) }
+        }
+        log.trace("Returning ${resp.size()} records")
+        return resp
+    }
+
+    @JsonableEventBusConsumerForDynamic(addressProperty = "countAddress")
+    suspend fun handleCountWrapper(message: JsonObject) =
+            handleCount(message.toRecord())
+
+    private suspend fun handleCount(message: GameRecord): CountResponse {
+        log.trace("Count requested in table ${table.name}:\n$message")
+
+        val (size) = db {
+            selectCount()
+                    .from(table)
+                    .where(message.toWhere())
+                    .fetchOne()
+        }
+        log.trace("Returning $size")
+        return CountResponse(size)
+    }
+
+
+}

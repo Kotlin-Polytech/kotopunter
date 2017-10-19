@@ -7,9 +7,36 @@ export namespace Generated {
         Api: {
             Dummy: "kotopunter.dummy",
         },
+        DB: {
+            count: (entity: string) => {
+                return `kotoed.db.${entity}.count`;
+            },
+            create: (entity: string) => {
+                return `kotoed.db.${entity}.create`;
+            },
+            delete: (entity: string) => {
+                return `kotoed.db.${entity}.delete`;
+            },
+            find: (entity: string) => {
+                return `kotoed.db.${entity}.find`;
+            },
+            read: (entity: string) => {
+                return `kotoed.db.${entity}.read`;
+            },
+            readPage: (entity: string) => {
+                return `kotoed.db.${entity}.readPage`;
+            },
+            update: (entity: string) => {
+                return `kotoed.db.${entity}.update`;
+            },
+        },
         Dispatcher: {
             Status: "kotopunter.dispatcher.status",
             Update: "kotopunter.dispatcher.update",
+        },
+        History: {
+            Count: "kotopunter.history.count",
+            Page: "kotopunter.history.page",
         },
         User: {
             Auth: {
@@ -32,7 +59,13 @@ export namespace Generated {
     export const UrlPattern = {
         CurrentGames: "/running",
         EventBus: "/eventbus/*",
+        Games: "/games/:game.json",
         Index: "/",
+        Legacy: "/legacy/*",
+        MapView: "/viewMap/*",
+        MapViewJSCore: "/viewMap/js-core/*",
+        Maps: "/maps/*",
+        PastGames: "/finished",
         PuntTV: "/punttv/*",
         Star: "/*",
         Static: "/static/*",

@@ -5,6 +5,8 @@ object UrlPattern {
     const val Index = "/"
 
     const val CurrentGames = "/running"
+    const val PastGames = "/finished"
+    const val Games = "/games/:game.json"
     const val Static = "/static/*"
     const val Legacy = "/legacy/*"
     const val PuntTV = "/punttv/*"
