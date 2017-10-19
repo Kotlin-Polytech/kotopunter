@@ -13,6 +13,7 @@ import {eventBus} from "../eventBus";
 import {Link} from "react-router-dom";
 import * as Col from "react-bootstrap/lib/Col";
 import {ColProps} from "react-bootstrap/lib/Col";
+import * as Button from "react-bootstrap/lib/Button";
 
 type Int = number
 
@@ -69,16 +70,21 @@ export class Dispatcher extends React.Component<DispatcherProps, DispatcherState
     </tr>;
 
     render() {
-        return <Table striped={true}>
-            <tbody>
-                {this.state.games.map(status => this.renderRow(status))}
-            </tbody>
-        </Table>
+        return <div>
+            <Button bsStyle={"link"} href={"/finished"}>
+                Previous games
+            </Button>
+            <Table striped={true}>
+                <tbody>
+                    {this.state.games.map(status => this.renderRow(status))}
+                </tbody>
+            </Table>
+        </div>
     }
 }
 
 render(
     <Dispatcher/>,
-    document.getElementById('dispatcher-app')
+    document.getElementById('react-app')
 );
 

@@ -32,12 +32,16 @@ val ClientHandlerTypes =
 
 fun kotopunterPerAddressFilter(vertx: Vertx): PerAddress {
     return PerAddress(
-            Address.Dispatcher.Status to Permissive
+            Address.Dispatcher.Status to Permissive,
+            Address.History.Page to Permissive,
+            Address.History.Count to Permissive
     )
 }
 
 val KotoedPerAddressAnonymousFilter = PerAddress(
-        Address.Dispatcher.Status to Permissive
+        Address.Dispatcher.Status to Permissive,
+        Address.History.Page to Permissive,
+        Address.History.Count to Permissive
 )
 
 object ClientPushFilter : ByAddress() {

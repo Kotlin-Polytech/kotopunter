@@ -8,9 +8,19 @@ import org.jetbrains.research.kotopunter.util.routing.Templatize
 import org.jetbrains.research.kotopunter.web.UrlPattern
 
 @HandlerFor(UrlPattern.CurrentGames)
-@Templatize("dispatcher.jade")
+@Templatize("react.jade")
 @JsBundle("dispatcher")
-suspend fun handleDispatcher(context: RoutingContext) {}
+suspend fun handleDispatcher(context: RoutingContext) {
+    context.put("title", "Current games")
+}
+
+@HandlerFor(UrlPattern.PastGames)
+@Templatize("react.jade")
+@JsBundle("history")
+suspend fun handleHistory(context: RoutingContext) {
+    context.put("title", "Finished games")
+}
+
 
 @HandlerFor(UrlPattern.Index)
 suspend fun handleSubmissionResultsById(context: RoutingContext) {

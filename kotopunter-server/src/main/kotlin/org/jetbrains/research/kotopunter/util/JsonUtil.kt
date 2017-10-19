@@ -94,6 +94,8 @@ inline operator fun JsonObject.set(key: String, value: Any?) = this.put(camelToK
 inline operator fun JsonObject?.contains(key: String) = this?.containsKey(camelToKey(key)) == true
 
 
+inline operator fun JsonArray.plusAssign(value: Any?) { value?.let(this::add) ?: this.addNull() }
+
 /******************************************************************************/
 
 inline operator fun <T> JsonObject.get(field: Field<T>): T? =

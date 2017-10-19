@@ -36,7 +36,8 @@ const config: webpack.Configuration = {
 
     entry: {
         hello: kotoedEntry("./ts/hello.ts"),
-        dispatcher: kotoedEntry("./ts/views/dispatcher.tsx")
+        dispatcher: kotoedEntry("./ts/views/dispatcher.tsx"),
+        history: kotoedEntry("./ts/views/history.tsx")
     },
     output: {
         path: dstPath,

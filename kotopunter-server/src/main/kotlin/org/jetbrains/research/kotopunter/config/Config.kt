@@ -55,11 +55,18 @@ class GlobalConfig : Configuration() {
 
     val Notifications by NotificationsConfig()
 
-    class ProcessorsConfig : Configuration() {
-        val CacheExpiration: Long by 30L
+    class DispatcherConfig : Configuration() {
+        class IntRange : Configuration() {
+            val From by 9002
+            val To by 9012
+        }
+
+        val PortRange by IntRange()
+
+        val Players by 2
     }
 
-    val Processors by ProcessorsConfig()
+    val Dispatcher by DispatcherConfig()
 
     class RootConfig : Configuration() {
         val Host: String by "http://localhost"

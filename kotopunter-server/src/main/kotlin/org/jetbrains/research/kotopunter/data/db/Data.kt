@@ -30,3 +30,6 @@ data class HasPermReply(
 fun newKotoedRecord(table: String) = PUBLIC.tables.find { it.name == table }?.newRecord()
 
 data class BatchUpdateMsg<out R : Record>(val criteria: R, val patch: R) : Jsonable
+
+data class ReadPageMsg(val find: JsonObject, val pageSize: Int, val page: Int): Jsonable
+data class CountResponse(val count: Int): Jsonable
