@@ -15,6 +15,7 @@ import java.io.InputStream
 import java.lang.invoke.MethodHandles
 import java.net.URI
 import java.net.URLEncoder
+import java.util.concurrent.ThreadLocalRandom
 import kotlin.coroutines.experimental.buildSequence
 import kotlin.reflect.KClass
 import kotlin.reflect.jvm.reflect
@@ -243,3 +244,5 @@ inline fun <T, S> List<T>.chunksBy(classifier: (T) -> S): List<Pair<S, List<T>>>
 }
 
 fun <T> typeOf(body: () -> T) = body.reflect()!!.returnType
+
+fun ThreadLocalRandom() = ThreadLocalRandom.current()!!

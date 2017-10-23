@@ -33,6 +33,9 @@ data class Update(val type: String, val payload: Jsonable) : Jsonable
 class Dispatcher : AbstractKotopunterVerticle() {
     val ports = Config.Dispatcher.PortRange.From..Config.Dispatcher.PortRange.To
 
+    fun getNumPlayers() = ThreadLocalRandom()
+            .nextInt(Config.Dispatcher.MinPlayers, Config.Dispatcher.MaxPlayers + 1)
+
     val maps by lazy {
         val dir = File(Config.Game.mapDirectory)
         if (dir.isAbsolute) dir.listFiles { _, name -> name.endsWith(".json") }
@@ -47,7 +50,7 @@ class Dispatcher : AbstractKotopunterVerticle() {
     }
 
     fun GameState(port: Int) =
-            GameState(port, "unknown", MutableList(Config.Dispatcher.Players) { Player(null) }, Phase.CREATED)
+            GameState(port, "unknown", MutableList(getNumPlayers()) { Player(null) }, Phase.CREATED)
 
     val statusTable = ports.mapTo(mutableListOf()) { GameState(it) }
 
@@ -99,13 +102,17 @@ class Dispatcher : AbstractKotopunterVerticle() {
         for ((ix, port) in ports.withIndex()) {
             launch(jobs[ix]) {
                 while (true) {
+                    val punters = statusTable[ix].players.size
+
                     val pb = ProcessBuilder(
                             "lampunt",
                             "--coordinates",
+                            "--address",
+                            "0.0.0.0",
                             "--port",
                             "$port",
                             "--punters",
-                            "${Config.Dispatcher.Players}",
+                            "$punters",
                             "--map",
                             randomMap.absolutePath
                     )
