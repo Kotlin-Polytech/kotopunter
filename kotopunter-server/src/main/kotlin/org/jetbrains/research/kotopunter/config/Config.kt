@@ -63,7 +63,8 @@ class GlobalConfig : Configuration() {
 
         val PortRange by IntRange()
 
-        val Players by 2
+        val MinPlayers by 2
+        val MaxPlayers by 2
     }
 
     val Dispatcher by DispatcherConfig()
