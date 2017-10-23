@@ -102,6 +102,8 @@ class Dispatcher : AbstractKotopunterVerticle() {
                     val pb = ProcessBuilder(
                             "lampunt",
                             "--coordinates",
+                            "--address",
+                            "0.0.0.0",
                             "--port",
                             "$port",
                             "--punters",
