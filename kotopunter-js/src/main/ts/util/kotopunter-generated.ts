@@ -9,25 +9,25 @@ export namespace Generated {
         },
         DB: {
             count: (entity: string) => {
-                return `kotoed.db.${entity}.count`;
+                return `kotopunter.db.${entity}.count`;
             },
             create: (entity: string) => {
-                return `kotoed.db.${entity}.create`;
+                return `kotopunter.db.${entity}.create`;
             },
             delete: (entity: string) => {
-                return `kotoed.db.${entity}.delete`;
+                return `kotopunter.db.${entity}.delete`;
             },
             find: (entity: string) => {
-                return `kotoed.db.${entity}.find`;
+                return `kotopunter.db.${entity}.find`;
             },
             read: (entity: string) => {
-                return `kotoed.db.${entity}.read`;
+                return `kotopunter.db.${entity}.read`;
             },
             readPage: (entity: string) => {
-                return `kotoed.db.${entity}.readPage`;
+                return `kotopunter.db.${entity}.readPage`;
             },
             update: (entity: string) => {
-                return `kotoed.db.${entity}.update`;
+                return `kotopunter.db.${entity}.update`;
             },
         },
         Dispatcher: {
