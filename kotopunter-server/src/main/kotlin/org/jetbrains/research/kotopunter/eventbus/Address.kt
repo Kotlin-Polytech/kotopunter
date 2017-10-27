@@ -6,14 +6,14 @@ object Address {
     }
 
     object DB {
-        fun create(entity: String) = "kotoed.db.$entity.create"
-        fun update(entity: String) = "kotoed.db.$entity.update"
-        fun find(entity: String) = "kotoed.db.$entity.find"
-        fun delete(entity: String) = "kotoed.db.$entity.delete"
-        fun read(entity: String) = "kotoed.db.$entity.read"
+        fun create(entity: String) = "kotopunter.db.$entity.create"
+        fun update(entity: String) = "kotopunter.db.$entity.update"
+        fun find(entity: String) = "kotopunter.db.$entity.find"
+        fun delete(entity: String) = "kotopunter.db.$entity.delete"
+        fun read(entity: String) = "kotopunter.db.$entity.read"
 
-        fun readPage(entity: String) = "kotoed.db.$entity.readPage"
-        fun count(entity: String) = "kotoed.db.$entity.count"
+        fun readPage(entity: String) = "kotopunter.db.$entity.readPage"
+        fun count(entity: String) = "kotopunter.db.$entity.count"
 
     }
 
