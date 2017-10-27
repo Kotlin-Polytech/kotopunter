@@ -37,7 +37,7 @@ class Dispatcher : AbstractKotopunterVerticle() {
             .nextInt(Config.Dispatcher.MinPlayers, Config.Dispatcher.MaxPlayers + 1)
 
     val maps by lazy {
-        val dir = File(Config.Game.mapDirectory)
+        val dir = File(Config.Game.MapDirectory)
         if (dir.isAbsolute) dir.listFiles { _, name -> name.endsWith(".json") }
         else File(System.getProperty("user.dir"), dir.path).listFiles { _, name -> name.endsWith(".json") }
     }
@@ -113,6 +113,8 @@ class Dispatcher : AbstractKotopunterVerticle() {
                             "$port",
                             "--punters",
                             "$punters",
+                            "--move-timeout",
+                            "${Config.Game.Timeout}",
                             "--map",
                             randomMap.absolutePath
                     )
