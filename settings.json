@@ -1,0 +1,6 @@
+{
+  "dispatcher": {
+    "min_players": 2,
+    "max_players": 4
+  }
+}

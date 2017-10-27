@@ -28,7 +28,8 @@ class GlobalConfig : Configuration() {
     val Debug by DebugConfig()
 
     class GameConfig: Configuration() {
-        val mapDirectory: String by "maps"
+        val MapDirectory: String by "maps"
+        val Timeout by 3.0
     }
 
     val Game by GameConfig()
