@@ -101,8 +101,8 @@ class Dispatcher : AbstractKotopunterVerticle() {
 
     override fun start(startFuture: Future<Void>) {
 
-        for ((ix, portData) in ports.map { it to "${Config.Game.Timeout}" }.withIndex() +
-                infTimeoutPorts.map { it to "inf" }.withIndex()) {
+        for ((ix, portData) in (ports.map { it to "${Config.Game.Timeout}" } +
+                infTimeoutPorts.map { it to "inf" }).withIndex()) {
             launch(jobs[ix]) {
                 while (true) {
                     val (port, timeout) = portData
