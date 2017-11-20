@@ -12,7 +12,7 @@ import java.io.File
 import java.util.concurrent.ThreadLocalRandom
 import java.util.concurrent.TimeUnit
 
-enum class Phase{ CREATED, RUNNING, ENDED }
+enum class Phase { CREATED, RUNNING, ENDED }
 
 data class Player(val name: String?) : Jsonable
 data class GameState(
@@ -31,7 +31,9 @@ data class Update(val type: String, val payload: Jsonable) : Jsonable
 
 @AutoDeployable
 class Dispatcher : AbstractKotopunterVerticle() {
-    val ports = Config.Dispatcher.PortRange.From..Config.Dispatcher.PortRange.To
+    private val ports = with(Config.Dispatcher.PortRange) { From..To }
+
+    private val infTimeoutPorts = with(Config.Dispatcher.InfTimeoutPortRange) { From..To }
 
     fun getNumPlayers() = ThreadLocalRandom()
             .nextInt(Config.Dispatcher.MinPlayers, Config.Dispatcher.MaxPlayers + 1)
@@ -44,7 +46,7 @@ class Dispatcher : AbstractKotopunterVerticle() {
 
     val randomMap get() = maps[ThreadLocalRandom.current().nextInt(0, maps.size)]
 
-    val jobs = ports.map {
+    val jobs = (ports + infTimeoutPorts).map {
         newSingleThreadContext("kotopunter.dispatcher.$it") +
                 WithExceptions { log.error("", it) }
     }
@@ -52,7 +54,7 @@ class Dispatcher : AbstractKotopunterVerticle() {
     fun GameState(port: Int) =
             GameState(port, "unknown", MutableList(getNumPlayers()) { Player(null) }, Phase.CREATED)
 
-    val statusTable = ports.mapTo(mutableListOf()) { GameState(it) }
+    val statusTable = (ports + infTimeoutPorts).mapTo(mutableListOf()) { GameState(it) }
 
     fun lineToJson(line: String): JsonObject? {
         val reLine = line.removePrefix("lampunt: main: ")
@@ -99,9 +101,12 @@ class Dispatcher : AbstractKotopunterVerticle() {
 
     override fun start(startFuture: Future<Void>) {
 
-        for ((ix, port) in ports.withIndex()) {
+        for ((ix, portData) in ports.map { it to "${Config.Game.Timeout}" }.withIndex() +
+                infTimeoutPorts.map { it to "inf" }.withIndex()) {
             launch(jobs[ix]) {
                 while (true) {
+                    val (port, timeout) = portData
+
                     val punters = statusTable[ix].players.size
 
                     val pb = ProcessBuilder(
@@ -114,7 +119,7 @@ class Dispatcher : AbstractKotopunterVerticle() {
                             "--punters",
                             "$punters",
                             "--move-timeout",
-                            "${Config.Game.Timeout}",
+                            timeout,
                             "--map",
                             randomMap.absolutePath
                     )
@@ -139,7 +144,7 @@ class Dispatcher : AbstractKotopunterVerticle() {
                     statusTable[ix] = GameState(port)
                     publishJsonable(Address.Dispatcher.Update, Update("game_finished", GameFinished(ix)))
 
-                    if(logArray.asSequence().filterIsInstance<JsonObject>().any { it.containsKey("gameplay") }) {
+                    if (logArray.asSequence().filterIsInstance<JsonObject>().any { it.containsKey("gameplay") }) {
                         val dbGame: GameRecord =
                                 sendJsonableAsync(Address.DB.create("game"), GameRecord().apply { log = objectLog })
                         use(dbGame)

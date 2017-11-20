@@ -1,6 +1,5 @@
 package org.jetbrains.research.kotopunter.config
 
-import org.jetbrains.research.kotopunter.util.base64Encode
 import org.jooq.tools.jdbc.JDBCUtils
 
 class GlobalConfig : Configuration() {
@@ -27,7 +26,7 @@ class GlobalConfig : Configuration() {
 
     val Debug by DebugConfig()
 
-    class GameConfig: Configuration() {
+    class GameConfig : Configuration() {
         val MapDirectory: String by "maps"
         val Timeout by 3.0
     }
@@ -57,12 +56,19 @@ class GlobalConfig : Configuration() {
     val Notifications by NotificationsConfig()
 
     class DispatcherConfig : Configuration() {
-        class IntRange : Configuration() {
+        class DefaultPortRange : Configuration() {
             val From by 9002
             val To by 9012
         }
 
-        val PortRange by IntRange()
+        class DefaultInfTimeoutPortRange : Configuration() {
+            val From by 10000
+            val To by 10000
+        }
+
+        val PortRange by DefaultPortRange()
+
+        val InfTimeoutPortRange by DefaultInfTimeoutPortRange()
 
         val MinPlayers by 2
         val MaxPlayers by 4
