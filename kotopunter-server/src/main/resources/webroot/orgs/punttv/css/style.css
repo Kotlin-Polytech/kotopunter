@@ -162,7 +162,7 @@ main > div {
 }
 
 .zombie {
-  background: url('../img/zombie.png') no-repeat center center;
+  background: url('/legacy/punttv/img/zombie.png') no-repeat center center;
   background-size: contain;
 }
 
