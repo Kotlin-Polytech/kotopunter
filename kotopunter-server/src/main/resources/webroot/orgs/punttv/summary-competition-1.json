@@ -1,6 +1,13 @@
 {
   "game": [
     {
+      "team": "lilbot",
+      "sanity": [
+        "games/competition1/sanity/default-lilbot0.json",
+        "games/competition1/sanity2/lambda-lilbot0.json"
+      ]
+    },
+    {
       "team": "DarkHorse",
       "sanity": [
         "games/competition1/sanity/default-DarkHorse0.json",
