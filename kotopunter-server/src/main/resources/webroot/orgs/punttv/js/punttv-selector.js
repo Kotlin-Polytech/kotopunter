@@ -104,7 +104,7 @@ function displaySummaryTable(round_num, json) {
                     const mapName = makeMapName(splitFile);
                     games.push({'map': mapName, 'plays':[]});
                 }
-                games[i].plays.push({'ref': "tv.html?game=" + gameName, 'number': num});
+                games[i].plays.push({'ref': "/legacy/punttv/tv.html?game=" + gameName, 'number': num});
             });
 
             // Layout the subcategory
