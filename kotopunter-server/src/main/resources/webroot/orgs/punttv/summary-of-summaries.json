@@ -3,6 +3,10 @@
     {
       "name" : "Competition round 1",
       "file" : "summary-competition-1.json"
+    },
+    {
+      "name" : "Competition round 2",
+      "file" : "summary-competition-2.json"
     }
   ]
 }
