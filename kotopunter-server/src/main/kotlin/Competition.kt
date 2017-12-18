@@ -1,15 +1,33 @@
-import io.vertx.core.json.Json
 import io.vertx.core.json.JsonObject
-import org.funktionale.collections.tail
 import org.jetbrains.research.kotopunter.config.Config
-import org.jetbrains.research.kotopunter.database.tables.records.GameRecord
-import org.jetbrains.research.kotopunter.dispatch.GameFinished
-import org.jetbrains.research.kotopunter.dispatch.Update
-import org.jetbrains.research.kotopunter.eventbus.Address
-import org.jetbrains.research.kotopunter.util.*
+import org.jetbrains.research.kotopunter.util.JsonObject
+import org.jetbrains.research.kotopunter.util.ThreadLocalRandom
+import org.jetbrains.research.kotopunter.util.jsonArrayOf
+import org.jetbrains.research.kotopunter.util.plusAssign
 import java.io.File
 import java.util.*
 import java.util.concurrent.TimeUnit
+import kotlin.collections.List
+import kotlin.collections.asIterable
+import kotlin.collections.component1
+import kotlin.collections.component2
+import kotlin.collections.filter
+import kotlin.collections.filterIsInstance
+import kotlin.collections.find
+import kotlin.collections.first
+import kotlin.collections.firstOrNull
+import kotlin.collections.forEach
+import kotlin.collections.forEachIndexed
+import kotlin.collections.iterator
+import kotlin.collections.joinToString
+import kotlin.collections.listOf
+import kotlin.collections.map
+import kotlin.collections.minus
+import kotlin.collections.mutableMapOf
+import kotlin.collections.set
+import kotlin.collections.sortedByDescending
+import kotlin.collections.withIndex
+import kotlin.collections.zip
 
 object Competition {
 
@@ -109,7 +127,7 @@ object Competition {
 
         teamDirs.forEach { team ->
             val res = runRound(File("maps/default.json"), listOf(team))
-            File("sanity", "${team.name}.json").apply { parentFile.mkdirs() }.writeText(res.encodePrettily())
+            File("sanity", "default-${team.name}0.json").apply { parentFile.mkdirs() }.writeText(res.encodePrettily())
             scores[team] = (scores[team] ?: 0) +
                     res
                             .getJsonArray("game")
@@ -123,7 +141,7 @@ object Competition {
 
         teamDirs.forEach { team ->
             val res = runRound(File("maps/lambda.json"), listOf(team))
-            File("sanity2", "${team.name}.json").apply { parentFile.mkdirs() }.writeText(res.encodePrettily())
+            File("sanity2", "default-${team.name}0.json").apply { parentFile.mkdirs() }.writeText(res.encodePrettily())
             scores[team] = (scores[team] ?: 0) +
                     res
                             .getJsonArray("game")
@@ -183,6 +201,37 @@ object Competition {
         }
     }
 
+    fun fourthRound() {
+        val maps = listOf("circle", "randomMedium", "boston", "edinburgh-10000")
+
+        maps.forEach { map ->
+            val mapFile = File("maps/$map.json")
+            var counter = 0
+            for((i, team1) in teamDirs.withIndex()) {
+                for((j, team2) in teamDirs.withIndex()) {
+                    if(i == j) continue
+                    val res = runRound(mapFile, listOf(team1, team2))
+                    File("round4", "$map-$counter.json").apply { parentFile.mkdirs() }.writeText(res.encodePrettily())
+                    ++counter
+                }
+            }
+        }
+
+    }
+
+    fun fifthRound() {
+        val maps = listOf("edinburgh-10000")
+        maps.forEach { map ->
+            val mapFile = File("maps/$map.json")
+            for((i, _) in teamDirs.withIndex()) {
+                val copy = teamDirs.toMutableList()
+                Collections.rotate(copy, i)
+                val res = runRound(mapFile, copy)
+                File("round5", "$map-$i.json").apply { parentFile.mkdirs() }.writeText(res.encodePrettily())
+            }
+        }
+    }
+
     @JvmStatic
     fun main(args: Array<String>) {
 
@@ -196,6 +245,10 @@ object Competition {
         secondRound()
         println("Current scores: \n${scoring.asIterable().joinToString("\n")}")
         thirdRound()
+        println("Current scores: \n${scoring.asIterable().joinToString("\n")}")
+        fourthRound()
+        println("Current scores: \n${scoring.asIterable().joinToString("\n")}")
+        fifthRound()
         println("Final scores: \n${scoring.asIterable().joinToString("\n")}")
         println("Final points: \n${points.asIterable().joinToString("\n")}")
     }
