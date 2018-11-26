@@ -32,7 +32,7 @@ fun main(args: Array<String>) {
         j
     }
 
-    summary.put("games", games)
+    summary.put("game", games)
 
     File("summary.json").writeText(summary.encodePrettily())
 }
