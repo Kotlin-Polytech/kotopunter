@@ -1,5 +1,5 @@
 {
-  "games" : [ {
+  "game" : [ {
     "round1" : [ "games/competition1/round1/boston-4.json", "games/competition1/round1/star-4.json", "games/competition1/round1/triangle-4.json", "games/competition1/round1/vancouver-4.json" ],
     "sanity2" : [ "games/competition1/sanity2/budding-jack-0.json" ],
     "round2" : [ "games/competition1/round2/boston-2.json", "games/competition1/round2/boston-3.json", "games/competition1/round2/boston-4.json", "games/competition1/round2/icfp-coauthors-pj-2.json", "games/competition1/round2/icfp-coauthors-pj-3.json", "games/competition1/round2/icfp-coauthors-pj-4.json", "games/competition1/round2/oxford-10000-2.json", "games/competition1/round2/oxford-10000-3.json", "games/competition1/round2/oxford-10000-4.json", "games/competition1/round2/star-2.json", "games/competition1/round2/star-3.json", "games/competition1/round2/star-4.json", "games/competition1/round2/triangle-2.json", "games/competition1/round2/triangle-3.json", "games/competition1/round2/triangle-4.json", "games/competition1/round2/vancouver-2.json", "games/competition1/round2/vancouver-3.json", "games/competition1/round2/vancouver-4.json" ],
