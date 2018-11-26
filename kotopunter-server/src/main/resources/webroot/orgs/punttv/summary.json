@@ -1,5 +1,5 @@
 {
-  "games" : [ {
+  "game" : [ {
     "sanity" : [ "games/competition1/sanity/budding-jack-0.json" ],
     "sanity2" : [ "games/competition1/sanity2/budding-jack-0.json" ],
     "round1" : [ "games/competition1/round1/boston-4.json", "games/competition1/round1/star-4.json", "games/competition1/round1/triangle-4.json", "games/competition1/round1/vancouver-4.json" ],
