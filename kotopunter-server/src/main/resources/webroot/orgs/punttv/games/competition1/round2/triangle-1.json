@@ -7,92 +7,38 @@
     "map" : "triangle.json"
   }, {
     "punter" : 0,
-    "team" : "Dead Moroz"
+    "team" : "Mitya in da house!"
   }, {
     "punter" : 1,
-    "team" : "XXon"
+    "team" : "CordOfGlitches"
   }, {
     "punter" : 2,
-    "team" : "Trilogy"
+    "team" : "YAT"
   }, {
     "gameplay" : "start"
   }, {
     "claim" : {
       "punter" : 0,
       "source" : 3,
-      "target" : 23
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
-      "source" : 3,
       "target" : 12
     }
   }, {
     "claim" : {
-      "punter" : 2,
-      "source" : 5,
-      "target" : 33
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
-      "source" : 4,
-      "target" : 36
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
-      "source" : 5,
-      "target" : 16
-    }
-  }, {
-    "claim" : {
-      "punter" : 2,
-      "source" : 33,
-      "target" : 30
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
-      "source" : 5,
-      "target" : 35
-    }
-  }, {
-    "claim" : {
       "punter" : 1,
       "source" : 3,
-      "target" : 21
+      "target" : 23
     }
   }, {
     "claim" : {
       "punter" : 2,
-      "source" : 30,
-      "target" : 36
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
-      "source" : 4,
-      "target" : 29
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
       "source" : 3,
       "target" : 13
     }
   }, {
     "claim" : {
-      "punter" : 2,
-      "source" : 36,
-      "target" : 37
-    }
-  }, {
-    "claim" : {
       "punter" : 0,
-      "source" : 20,
-      "target" : 23
+      "source" : 5,
+      "target" : 16
     }
   }, {
     "claim" : {
@@ -103,182 +49,92 @@
   }, {
     "claim" : {
       "punter" : 2,
-      "source" : 37,
-      "target" : 4
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
-      "source" : 20,
+      "source" : 4,
       "target" : 29
     }
   }, {
     "claim" : {
+      "punter" : 0,
+      "source" : 3,
+      "target" : 21
+    }
+  }, {
+    "claim" : {
       "punter" : 1,
+      "source" : 4,
+      "target" : 36
+    }
+  }, {
+    "claim" : {
+      "punter" : 2,
+      "source" : 5,
+      "target" : 35
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
       "source" : 4,
       "target" : 28
     }
   }, {
     "claim" : {
+      "punter" : 1,
+      "source" : 20,
+      "target" : 23
+    }
+  }, {
+    "claim" : {
       "punter" : 2,
-      "source" : 37,
-      "target" : 38
+      "source" : 4,
+      "target" : 37
     }
   }, {
     "claim" : {
       "punter" : 0,
-      "source" : 36,
-      "target" : 38
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
-      "source" : 13,
-      "target" : 7
-    }
-  }, {
-    "claim" : {
-      "punter" : 2,
-      "source" : 38,
-      "target" : 30
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
-      "source" : 31,
-      "target" : 38
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
-      "source" : 7,
-      "target" : 16
-    }
-  }, {
-    "claim" : {
-      "punter" : 2,
-      "source" : 37,
-      "target" : 31
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
-      "source" : 31,
-      "target" : 39
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
-      "source" : 13,
-      "target" : 14
-    }
-  }, {
-    "claim" : {
-      "punter" : 2,
-      "source" : 39,
-      "target" : 32
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
-      "source" : 39,
-      "target" : 41
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
-      "source" : 6,
-      "target" : 14
-    }
-  }, {
-    "claim" : {
-      "punter" : 2,
-      "source" : 32,
-      "target" : 35
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
-      "source" : 32,
-      "target" : 41
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
-      "source" : 6,
-      "target" : 9
-    }
-  }, {
-    "claim" : {
-      "punter" : 2,
-      "source" : 35,
+      "source" : 5,
       "target" : 33
     }
   }, {
     "claim" : {
-      "punter" : 0,
-      "source" : 32,
-      "target" : 34
-    }
-  }, {
-    "claim" : {
       "punter" : 1,
-      "source" : 9,
-      "target" : 11
+      "source" : 20,
+      "target" : 29
     }
   }, {
     "claim" : {
       "punter" : 2,
-      "source" : 31,
-      "target" : 40
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
       "source" : 34,
       "target" : 35
     }
   }, {
     "claim" : {
+      "punter" : 0,
+      "source" : 12,
+      "target" : 14
+    }
+  }, {
+    "claim" : {
       "punter" : 1,
-      "source" : 10,
-      "target" : 11
+      "source" : 30,
+      "target" : 36
     }
   }, {
     "claim" : {
       "punter" : 2,
-      "source" : 40,
-      "target" : 41
+      "source" : 38,
+      "target" : 37
     }
   }, {
     "claim" : {
       "punter" : 0,
-      "source" : 22,
-      "target" : 23
+      "source" : 13,
+      "target" : 14
     }
   }, {
     "claim" : {
       "punter" : 1,
-      "source" : 8,
-      "target" : 11
-    }
-  }, {
-    "claim" : {
-      "punter" : 2,
-      "source" : 40,
-      "target" : 39
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
-      "source" : 20,
-      "target" : 22
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
-      "source" : 8,
-      "target" : 15
+      "source" : 30,
+      "target" : 33
     }
   }, {
     "claim" : {
@@ -289,134 +145,44 @@
   }, {
     "claim" : {
       "punter" : 0,
-      "source" : 21,
-      "target" : 23
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
-      "source" : 12,
-      "target" : 14
-    }
-  }, {
-    "claim" : {
-      "punter" : 2,
-      "source" : 34,
-      "target" : 33
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
-      "source" : 21,
-      "target" : 22
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
-      "source" : 7,
-      "target" : 14
-    }
-  }, {
-    "claim" : {
-      "punter" : 2,
-      "source" : 41,
-      "target" : 2
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
-      "source" : 18,
-      "target" : 21
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
-      "source" : 7,
-      "target" : 15
-    }
-  }, {
-    "claim" : {
-      "punter" : 2,
-      "source" : 2,
-      "target" : 40
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
-      "source" : 18,
-      "target" : 22
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
-      "source" : 6,
-      "target" : 12
-    }
-  }, {
-    "claim" : {
-      "punter" : 2,
-      "source" : 15,
-      "target" : 16
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
-      "source" : 18,
-      "target" : 24
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
-      "source" : 0,
-      "target" : 11
-    }
-  }, {
-    "claim" : {
-      "punter" : 2,
-      "source" : 15,
-      "target" : 17
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
-      "source" : 24,
-      "target" : 25
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
-      "source" : 0,
-      "target" : 9
-    }
-  }, {
-    "claim" : {
-      "punter" : 2,
-      "source" : 17,
-      "target" : 8
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
-      "source" : 19,
-      "target" : 25
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
       "source" : 12,
       "target" : 13
     }
   }, {
     "claim" : {
+      "punter" : 1,
+      "source" : 7,
+      "target" : 16
+    }
+  }, {
+    "claim" : {
       "punter" : 2,
-      "source" : 8,
-      "target" : 10
+      "source" : 30,
+      "target" : 38
     }
   }, {
     "claim" : {
       "punter" : 0,
-      "source" : 1,
-      "target" : 25
+      "source" : 7,
+      "target" : 14
+    }
+  }, {
+    "claim" : {
+      "punter" : 1,
+      "source" : 7,
+      "target" : 13
+    }
+  }, {
+    "claim" : {
+      "punter" : 2,
+      "source" : 29,
+      "target" : 27
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
+      "source" : 6,
+      "target" : 14
     }
   }, {
     "claim" : {
@@ -427,38 +193,92 @@
   }, {
     "claim" : {
       "punter" : 2,
-      "source" : 10,
-      "target" : 9
+      "source" : 27,
+      "target" : 20
     }
   }, {
     "claim" : {
       "punter" : 0,
-      "source" : 1,
-      "target" : 24
+      "source" : 6,
+      "target" : 12
     }
   }, {
     "claim" : {
       "punter" : 1,
-      "source" : 27,
-      "target" : 28
+      "source" : 7,
+      "target" : 15
     }
   }, {
     "claim" : {
       "punter" : 2,
-      "source" : 10,
-      "target" : 6
+      "source" : 20,
+      "target" : 22
     }
   }, {
     "claim" : {
       "punter" : 0,
-      "source" : 25,
-      "target" : 26
+      "source" : 21,
+      "target" : 23
     }
   }, {
     "claim" : {
       "punter" : 1,
-      "source" : 20,
-      "target" : 27
+      "source" : 15,
+      "target" : 16
+    }
+  }, {
+    "claim" : {
+      "punter" : 2,
+      "source" : 22,
+      "target" : 18
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
+      "source" : 22,
+      "target" : 23
+    }
+  }, {
+    "claim" : {
+      "punter" : 1,
+      "source" : 15,
+      "target" : 17
+    }
+  }, {
+    "claim" : {
+      "punter" : 2,
+      "source" : 18,
+      "target" : 24
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
+      "source" : 21,
+      "target" : 22
+    }
+  }, {
+    "claim" : {
+      "punter" : 1,
+      "source" : 8,
+      "target" : 15
+    }
+  }, {
+    "claim" : {
+      "punter" : 2,
+      "source" : 24,
+      "target" : 1
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
+      "source" : 18,
+      "target" : 21
+    }
+  }, {
+    "claim" : {
+      "punter" : 1,
+      "source" : 8,
+      "target" : 17
     }
   }, {
     "claim" : {
@@ -469,20 +289,74 @@
   }, {
     "claim" : {
       "punter" : 0,
+      "source" : 18,
+      "target" : 26
+    }
+  }, {
+    "claim" : {
+      "punter" : 1,
+      "source" : 8,
+      "target" : 11
+    }
+  }, {
+    "claim" : {
+      "punter" : 2,
+      "source" : 24,
+      "target" : 25
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
+      "source" : 25,
+      "target" : 26
+    }
+  }, {
+    "claim" : {
+      "punter" : 1,
+      "source" : 10,
+      "target" : 11
+    }
+  }, {
+    "claim" : {
+      "punter" : 2,
+      "source" : 25,
+      "target" : 19
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
+      "source" : 1,
+      "target" : 25
+    }
+  }, {
+    "claim" : {
+      "punter" : 1,
+      "source" : 8,
+      "target" : 10
+    }
+  }, {
+    "claim" : {
+      "punter" : 2,
+      "source" : 27,
+      "target" : 28
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
       "source" : 19,
       "target" : 26
     }
   }, {
     "claim" : {
       "punter" : 1,
-      "source" : 19,
-      "target" : 27
+      "source" : 9,
+      "target" : 11
     }
   }, {
     "claim" : {
       "punter" : 2,
-      "source" : 26,
-      "target" : 18
+      "source" : 34,
+      "target" : 32
     }
   }, {
     "claim" : {
@@ -493,30 +367,156 @@
   }, {
     "claim" : {
       "punter" : 1,
-      "source" : 27,
-      "target" : 29
+      "source" : 9,
+      "target" : 10
     }
   }, {
     "claim" : {
       "punter" : 2,
+      "source" : 32,
+      "target" : 41
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
+      "source" : 6,
+      "target" : 9
+    }
+  }, {
+    "claim" : {
+      "punter" : 1,
+      "source" : 0,
+      "target" : 11
+    }
+  }, {
+    "claim" : {
+      "punter" : 2,
+      "source" : 41,
+      "target" : 2
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
+      "source" : 0,
+      "target" : 9
+    }
+  }, {
+    "claim" : {
+      "punter" : 1,
+      "source" : 36,
+      "target" : 38
+    }
+  }, {
+    "claim" : {
+      "punter" : 2,
+      "source" : 2,
+      "target" : 40
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
+      "source" : 19,
+      "target" : 27
+    }
+  }, {
+    "claim" : {
+      "punter" : 1,
+      "source" : 31,
+      "target" : 38
+    }
+  }, {
+    "claim" : {
+      "punter" : 2,
+      "source" : 40,
+      "target" : 31
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
+      "source" : 33,
+      "target" : 34
+    }
+  }, {
+    "claim" : {
+      "punter" : 1,
+      "source" : 36,
+      "target" : 37
+    }
+  }, {
+    "claim" : {
+      "punter" : 2,
+      "source" : 40,
+      "target" : 39
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
+      "source" : 6,
+      "target" : 10
+    }
+  }, {
+    "claim" : {
+      "punter" : 1,
+      "source" : 31,
+      "target" : 37
+    }
+  }, {
+    "claim" : {
+      "punter" : 2,
+      "source" : 35,
+      "target" : 33
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
       "source" : 28,
       "target" : 29
+    }
+  }, {
+    "claim" : {
+      "punter" : 1,
+      "source" : 31,
+      "target" : 39
+    }
+  }, {
+    "claim" : {
+      "punter" : 2,
+      "source" : 32,
+      "target" : 39
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
+      "source" : 40,
+      "target" : 41
+    }
+  }, {
+    "claim" : {
+      "punter" : 1,
+      "source" : 39,
+      "target" : 41
+    }
+  }, {
+    "claim" : {
+      "punter" : 2,
+      "source" : 32,
+      "target" : 35
     }
   }, {
     "gameplay" : "stop"
   }, {
     "scores" : [ {
       "punter" : 0,
-      "score" : 1194,
-      "team" : "Dead Moroz"
+      "score" : 601,
+      "team" : "Mitya in da house!"
     }, {
       "punter" : 1,
-      "score" : 300,
-      "team" : "XXon"
+      "score" : 135,
+      "team" : "CordOfGlitches"
     }, {
       "punter" : 2,
-      "score" : 260,
-      "team" : "Trilogy"
+      "score" : 781,
+      "team" : "YAT"
     } ]
   }, {
     "statuses" : [ {

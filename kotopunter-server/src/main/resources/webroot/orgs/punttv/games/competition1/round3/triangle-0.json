@@ -7,7 +7,7 @@
     "map" : "triangle.json"
   }, {
     "punter" : 0,
-    "team" : "DarkHorse"
+    "team" : "Mitya in da house!"
   }, {
     "punter" : 1,
     "team" : "Nasty Mack"
@@ -16,37 +16,13 @@
   }, {
     "claim" : {
       "punter" : 0,
-      "source" : 29,
-      "target" : 4
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
       "source" : 3,
       "target" : 12
     }
   }, {
     "claim" : {
-      "punter" : 0,
-      "source" : 20,
-      "target" : 29
-    }
-  }, {
-    "claim" : {
       "punter" : 1,
       "source" : 3,
-      "target" : 13
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
-      "source" : 23,
-      "target" : 20
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
-      "source" : 7,
       "target" : 13
     }
   }, {
@@ -59,7 +35,7 @@
     "claim" : {
       "punter" : 1,
       "source" : 7,
-      "target" : 14
+      "target" : 13
     }
   }, {
     "claim" : {
@@ -71,7 +47,7 @@
     "claim" : {
       "punter" : 1,
       "source" : 7,
-      "target" : 15
+      "target" : 14
     }
   }, {
     "claim" : {
@@ -94,7 +70,19 @@
   }, {
     "claim" : {
       "punter" : 1,
+      "source" : 7,
+      "target" : 15
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
       "source" : 5,
+      "target" : 17
+    }
+  }, {
+    "claim" : {
+      "punter" : 1,
+      "source" : 16,
       "target" : 17
     }
   }, {
@@ -106,8 +94,8 @@
   }, {
     "claim" : {
       "punter" : 1,
-      "source" : 28,
-      "target" : 29
+      "source" : 7,
+      "target" : 16
     }
   }, {
     "claim" : {
@@ -118,8 +106,8 @@
   }, {
     "claim" : {
       "punter" : 1,
-      "source" : 7,
-      "target" : 16
+      "source" : 12,
+      "target" : 14
     }
   }, {
     "claim" : {
@@ -148,6 +136,54 @@
   }, {
     "claim" : {
       "punter" : 0,
+      "source" : 4,
+      "target" : 29
+    }
+  }, {
+    "claim" : {
+      "punter" : 1,
+      "source" : 28,
+      "target" : 29
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
+      "source" : 6,
+      "target" : 12
+    }
+  }, {
+    "claim" : {
+      "punter" : 1,
+      "source" : 15,
+      "target" : 17
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
+      "source" : 6,
+      "target" : 14
+    }
+  }, {
+    "claim" : {
+      "punter" : 1,
+      "source" : 20,
+      "target" : 23
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
+      "source" : 13,
+      "target" : 14
+    }
+  }, {
+    "claim" : {
+      "punter" : 1,
+      "source" : 12,
+      "target" : 13
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
       "source" : 22,
       "target" : 23
     }
@@ -160,26 +196,14 @@
   }, {
     "claim" : {
       "punter" : 0,
-      "source" : 20,
-      "target" : 22
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
-      "source" : 12,
-      "target" : 14
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
       "source" : 15,
       "target" : 16
     }
   }, {
     "claim" : {
       "punter" : 1,
-      "source" : 15,
-      "target" : 17
+      "source" : 20,
+      "target" : 29
     }
   }, {
     "claim" : {
@@ -190,8 +214,8 @@
   }, {
     "claim" : {
       "punter" : 1,
-      "source" : 30,
-      "target" : 33
+      "source" : 8,
+      "target" : 17
     }
   }, {
     "claim" : {
@@ -215,7 +239,7 @@
     "claim" : {
       "punter" : 1,
       "source" : 30,
-      "target" : 34
+      "target" : 33
     }
   }, {
     "claim" : {
@@ -227,7 +251,7 @@
     "claim" : {
       "punter" : 1,
       "source" : 30,
-      "target" : 36
+      "target" : 34
     }
   }, {
     "claim" : {
@@ -252,6 +276,18 @@
       "punter" : 1,
       "source" : 1,
       "target" : 24
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
+      "source" : 30,
+      "target" : 36
+    }
+  }, {
+    "claim" : {
+      "punter" : 1,
+      "source" : 30,
+      "target" : 38
     }
   }, {
     "claim" : {
@@ -286,8 +322,8 @@
   }, {
     "claim" : {
       "punter" : 1,
-      "source" : 30,
-      "target" : 38
+      "source" : 34,
+      "target" : 35
     }
   }, {
     "claim" : {
@@ -304,56 +340,8 @@
   }, {
     "claim" : {
       "punter" : 0,
-      "source" : 9,
-      "target" : 11
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
-      "source" : 9,
-      "target" : 10
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
-      "source" : 0,
-      "target" : 11
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
-      "source" : 0,
-      "target" : 9
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
-      "source" : 6,
-      "target" : 9
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
       "source" : 6,
       "target" : 10
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
-      "source" : 6,
-      "target" : 14
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
-      "source" : 34,
-      "target" : 35
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
-      "source" : 13,
-      "target" : 14
     }
   }, {
     "claim" : {
@@ -364,50 +352,62 @@
   }, {
     "claim" : {
       "punter" : 0,
+      "source" : 9,
+      "target" : 11
+    }
+  }, {
+    "claim" : {
+      "punter" : 1,
       "source" : 6,
-      "target" : 12
-    }
-  }, {
-    "claim" : {
-      "punter" : 1,
-      "source" : 12,
-      "target" : 13
+      "target" : 9
     }
   }, {
     "claim" : {
       "punter" : 0,
-      "source" : 16,
-      "target" : 17
+      "source" : 9,
+      "target" : 10
     }
   }, {
     "claim" : {
       "punter" : 1,
-      "source" : 8,
-      "target" : 17
-    }
-  }, {
-    "claim" : {
-      "punter" : 0,
       "source" : 20,
-      "target" : 27
+      "target" : 22
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
+      "source" : 0,
+      "target" : 11
     }
   }, {
     "claim" : {
       "punter" : 1,
+      "source" : 0,
+      "target" : 9
+    }
+  }, {
+    "claim" : {
+      "punter" : 0,
       "source" : 19,
       "target" : 27
     }
   }, {
     "claim" : {
-      "punter" : 0,
+      "punter" : 1,
       "source" : 27,
       "target" : 28
     }
   }, {
     "claim" : {
-      "punter" : 1,
+      "punter" : 0,
       "source" : 27,
       "target" : 29
+    }
+  }, {
+    "claim" : {
+      "punter" : 1,
+      "source" : 20,
+      "target" : 27
     }
   }, {
     "claim" : {
@@ -505,10 +505,10 @@
     "scores" : [ {
       "punter" : 0,
       "score" : 2091,
-      "team" : "DarkHorse"
+      "team" : "Mitya in da house!"
     }, {
       "punter" : 1,
-      "score" : 235,
+      "score" : 69,
       "team" : "Nasty Mack"
     } ]
   }, {
