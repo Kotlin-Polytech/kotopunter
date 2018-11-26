@@ -1,0 +1,77 @@
+{
+  "game" : [ {
+    "start" : { }
+  }, {
+    "settings" : { }
+  }, {
+    "map" : "default.json"
+  }, {
+    "punter" : 0,
+    "team" : "Bot Steve"
+  }, {
+    "gameplay" : "start"
+  }, {
+    "pass" : {
+      "punter" : 0
+    }
+  }, {
+    "pass" : {
+      "punter" : 0
+    }
+  }, {
+    "pass" : {
+      "punter" : 0
+    }
+  }, {
+    "pass" : {
+      "punter" : 0
+    }
+  }, {
+    "pass" : {
+      "punter" : 0
+    }
+  }, {
+    "pass" : {
+      "punter" : 0
+    }
+  }, {
+    "pass" : {
+      "punter" : 0
+    }
+  }, {
+    "pass" : {
+      "punter" : 0
+    }
+  }, {
+    "pass" : {
+      "punter" : 0
+    }
+  }, {
+    "pass" : {
+      "punter" : 0
+    }
+  }, {
+    "pass" : {
+      "punter" : 0
+    }
+  }, {
+    "pass" : {
+      "punter" : 0
+    }
+  }, {
+    "gameplay" : "stop"
+  }, {
+    "scores" : [ {
+      "punter" : 0,
+      "score" : 0,
+      "team" : "Bot Steve"
+    } ]
+  }, {
+    "statuses" : [ {
+      "punter" : 0,
+      "active" : true
+    } ]
+  }, {
+    "stop" : { }
+  } ]
+}
