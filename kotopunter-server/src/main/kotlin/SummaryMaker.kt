@@ -20,7 +20,7 @@ fun main(args: Array<String>) {
             for(turn in obj.getJsonArray("game", JsonArray())) {
                 turn as? JsonObject ?: continue
                 val teamName = turn.getString("team") ?: continue
-                teams.getOrPut(teamName) { mutableMapOf() }.getOrPut(dir.name) { java.util.TreeSet() } +=
+                teams.getOrPut(teamName) { sortedMapOf() }.getOrPut(dir.name) { java.util.TreeSet() } +=
                         "games/competition1/${dir.name}/${f.name}"
             }
         }
