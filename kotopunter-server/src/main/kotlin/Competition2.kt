@@ -238,19 +238,45 @@ object Competition2 {
         baseDir = args.firstOrNull() ?: System.getProperty("user.dir")
         teamDirs = File(baseDir, "teams").listFiles().filter { it.isDirectory && !it.name.startsWith("$") }
 
-        sanityCheckRound()
-        println("Current scores: \n${scoring.asIterable().joinToString("\n")}")
-        firstRound()
-        println("Current scores: \n${scoring.asIterable().joinToString("\n")}")
-        secondRound()
-        println("Current scores: \n${scoring.asIterable().joinToString("\n")}")
-        thirdRound()
-        println("Current scores: \n${scoring.asIterable().joinToString("\n")}")
+        val resFile = File("results.txt").bufferedWriter()
+
+        fun println(s: String) {
+            kotlin.io.println(s)
+            resFile.appendln(s)
+            resFile.flush()
+        }
+
+//        println(">> Running sanity")
+//        sanityCheckRound()
+//        println(">> Current scores: \n${scoring.asIterable().joinToString("\n")}")
+//        println(">> Current points: \n${points.asIterable().joinToString("\n")}")
+//        println(">> Running round 1")
+//        firstRound()
+//        println(">> Current scores: \n${scoring.asIterable().joinToString("\n")}")
+//        println(">> Current points: \n${points.asIterable().joinToString("\n")}")
+//        println(">> Running round 2")
+//        secondRound()
+//        println(">> Current scores: \n${scoring.asIterable().joinToString("\n")}")
+//        println(">> Current points: \n${points.asIterable().joinToString("\n")}")
+//        println(">> Running round 3")
+//        thirdRound()
+//        println(">> Current scores: \n${scoring.asIterable().joinToString("\n")}")
+//        println(">> Current points: \n${points.asIterable().joinToString("\n")}")
+        println(">> Running round 4")
         fourthRound()
-        println("Current scores: \n${scoring.asIterable().joinToString("\n")}")
+        println(">> Current scores: \n${scoring.asIterable().joinToString("\n")}")
+        println(">> Current points: \n${points.asIterable().joinToString("\n")}")
+        println(">> Running round 5")
         fifthRound()
-        println("Final scores: \n${scoring.asIterable().joinToString("\n")}")
-        println("Final points: \n${points.asIterable().joinToString("\n")}")
+        println(">> Final scores: \n${scoring.asIterable().joinToString("\n")}")
+        println(">> Final points: \n${points.asIterable().joinToString("\n")}")
+    }
+
+    object me {
+        operator fun invoke() = 2
+    }
+    fun mee() {
+        me!!()
     }
 
 }
